@@ -15,18 +15,18 @@ import java.util.Map;
 import de.greenrobot.event.EventBus;
 
 public class FirebaseWrap {
-    private static final String FIREBASE_URL = "https://android-chat.firebaseio-demo.com";
+    private static final String FIREBASE_URL = "https://resplendent-heat-6040.firebaseio.com/";
     private Firebase mFirebaseRef;
 
-    public void OnEvent(CreateUserEvent e) {
+    public void onEvent(CreateUserEvent e) {
         CreateUser(e.email, e.password);
     }
 
-    public void OnEvent(LoginEvent e) {
+    public void onEvent(LoginEvent e) {
         Login(e.email, e.password);
     }
 
-    public void OnEvent(LogoutEvent e) {
+    public void onEvent(LogoutEvent e) {
         Logout();
     }
 

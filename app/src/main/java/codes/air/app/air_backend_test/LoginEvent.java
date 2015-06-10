@@ -6,4 +6,9 @@ package codes.air.app.air_backend_test;
 public final class LoginEvent {
     public String email;
     public String password;
+
+    public LoginEvent (String Email, String Password) {
+        email = Email;
+        password = Password;
+    }
 }

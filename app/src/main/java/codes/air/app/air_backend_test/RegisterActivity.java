@@ -10,31 +10,32 @@ import android.widget.EditText;
 
 import de.greenrobot.event.EventBus;
 
-public class LoginActivity extends ActionBarActivity {
+
+public class RegisterActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_register);
 
-        Button btnLogin = (Button) findViewById(R.id.buttonLogin);
-        Button btnClose = (Button) findViewById(R.id.buttonClose);
+        Button btnCreateAccount = (Button) findViewById(R.id.buttonCreateAccount);
+        Button btnCancle = (Button) findViewById(R.id.buttonCancle);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnCreateAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EventBus.getDefault().post(new LoginEvent(
-                        ((EditText) findViewById(R.id.editTextLoginEmail)).getText().toString(),
-                        ((EditText) findViewById(R.id.editTextLoginPassword)).getText().toString()
+                EventBus.getDefault().post(new CreateUserEvent(
+                        ((EditText) findViewById(R.id.editTextEmail)).getText().toString(),
+                        ((EditText) findViewById(R.id.editTextPassword)).getText().toString()
                 ));
-                LoginActivity.this.finish();
+                RegisterActivity.this.finish();
             }
         });
 
-        btnClose.setOnClickListener(new View.OnClickListener() {
+        btnCancle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LoginActivity.this.finish();
+                RegisterActivity.this.finish();
             }
         });
     }
@@ -42,7 +43,7 @@ public class LoginActivity extends ActionBarActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_login, menu);
+        getMenuInflater().inflate(R.menu.menu_register, menu);
         return true;
     }
 
